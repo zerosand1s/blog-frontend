@@ -17,7 +17,7 @@
     <footer>
       <span>Do not have an account yet?</span>
       &nbsp;&nbsp;&nbsp;
-      <a href="#">Register here</a>
+      <router-link to="/register">Register</router-link>
     </footer>
   </div>
 </template>

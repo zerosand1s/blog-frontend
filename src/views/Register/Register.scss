@@ -1,11 +1,11 @@
 .container {
   width: 30%;
   display: flex;
-  padding: 10px;
+  padding: 15px;
   position: absolute;
   left: 0;
   right: 0;
-  top: 15%;
+  top: 10%;
   margin: auto;
   text-align: center;
   flex-direction: column;
@@ -20,6 +20,11 @@ header {
 .input {
   position: relative;
   margin-bottom: 25px;
+}
+
+.input label {
+  float: left;
+  margin: 0 0 5px 5px;
 }
 
 .input input {
