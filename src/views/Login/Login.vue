@@ -3,12 +3,14 @@
     <header>
       <h2>Login to explore blogs</h2>
     </header>
-    <form action="#" method="post">
+    <form @submit.prevent="login">
       <div class="input">
-        <input type="text" name="username" />
+        <label for="username">Username</label>
+        <input type="text" name="username" v-model="credentials.username" />
       </div>
       <div class="input">
-        <input type="text" name="password" />
+        <label for="password">Password</label>
+        <input type="password" name="password" v-model="credentials.password" />
       </div>
       <div class="input">
         <button type="submit">Login</button>
@@ -23,7 +25,27 @@
 </template>
 
 <script>
-export default {};
+const authService = require("../../services/auth.service");
+export default {
+  data() {
+    return {
+      credentials: {
+        username: "",
+        password: ""
+      }
+    };
+  },
+  methods: {
+    async login() {
+      try {
+        await authService.login(this.credentials);
+        this.$router.push("home");
+      } catch (err) {
+        console.log("ERROR:", err);
+      }
+    }
+  }
+};
 </script>
 
 <style lang="scss">

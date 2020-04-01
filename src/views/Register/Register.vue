@@ -64,7 +64,7 @@ export default {
     async register() {
       try {
         await userService.register(this.user);
-        this.$router.push("Login");
+        this.$router.push("login");
       } catch (err) {
         console.log("ERROR:", err);
       }
