@@ -26,7 +26,12 @@
       </div>
       <div class="input">
         <label for="confirmPassword">Confirm Password</label>
-        <input type="password" name="confirmPassword" v-model="user.confirmPassword" />
+        // eslint-disable-next-line prettier/prettier
+        <input
+          type="password"
+          name="confirmPassword"
+          v-model="user.confirmPassword"
+        />
       </div>
       <div class="input">
         <button type="submit">Register</button>
