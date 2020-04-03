@@ -1,5 +1,5 @@
 .container {
-  width: 30%;
+  width: 60%;
   display: flex;
   padding: 15px;
   position: absolute;
@@ -9,8 +9,28 @@
   margin: auto;
   text-align: center;
   flex-direction: column;
-  border-radius: 5px;
-  background-color: lightgreen;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px 5px #ebebff;
+}
+
+.child-container {
+  width: inherit;
+  display: flex;
+  flex-direction: row;
+}
+
+.child-container-left {
+  width: 50%;
+  display: flex;
+  margin-right: 10px;
+  flex-direction: column;
+}
+
+.child-container-right {
+  width: 50%;
+  display: flex;
+  margin-left: 10px;
+  flex-direction: column;
 }
 
 header {
@@ -31,27 +51,28 @@ header {
   width: 100%;
   height: 50px;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 8px;
   padding-left: 10px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   border: solid 2px lightgray;
 }
 
-.input input:active {
-  border: solid 2px hsl(246, 25%, 77%);
+input:focus {
+  outline: none;
+  box-shadow: 2px 2px 8px 5px #ebebff;
 }
 
 .input button {
-  width: 100%;
+  width: 25%;
   height: 60px;
   color: #ffffff;
   text-align: center;
   font-weight: bolder;
   text-transform: uppercase;
   border-radius: 8px;
-  background-color: hsl(154, 59%, 51%);
+  background-color: #1414ff;
 }
 
 .input button:hover {
