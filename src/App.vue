@@ -1,12 +1,17 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Login</router-link>
-    </div>-->
     <router-view />
   </div>
 </template>
 
 <style lang="scss">
-@import url("/App.scss");
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+html body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#app {
+  font-family: 'Montserrat', sans-serif;
+}
 </style>
