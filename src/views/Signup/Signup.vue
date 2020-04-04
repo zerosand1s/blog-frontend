@@ -55,7 +55,7 @@
     <footer>
       <span>Already have an account?</span>
       &nbsp;&nbsp;&nbsp;
-      <router-link to="/login">Sign in</router-link>
+      <router-link to="/signin">Sign in</router-link>
     </footer>
   </div>
 </template>
@@ -79,7 +79,7 @@ export default {
     async register() {
       try {
         await userService.register(this.user);
-        this.$router.push('login');
+        this.$router.push('signin');
       } catch (err) {
         console.log('ERROR:', err);
       }

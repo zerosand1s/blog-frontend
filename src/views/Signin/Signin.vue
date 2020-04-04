@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <header>
-      <h2>Login to explore blogs</h2>
+      <h1>Sign In</h1>
+      <h3>Sign in to explore blogs</h3>
     </header>
     <form @submit.prevent="login">
       <div class="input">
@@ -13,25 +14,25 @@
         <input type="password" name="password" v-model="credentials.password" />
       </div>
       <div class="input">
-        <button type="submit">Login</button>
+        <button type="submit">Sign in</button>
       </div>
     </form>
     <footer>
       <span>Do not have an account yet?</span>
       &nbsp;&nbsp;&nbsp;
-      <router-link to="/register">Register</router-link>
+      <router-link to="/signup">Sign up</router-link>
     </footer>
   </div>
 </template>
 
 <script>
-const authService = require("../../services/auth.service");
+const authService = require('../../services/auth.service');
 export default {
   data() {
     return {
       credentials: {
-        username: "",
-        password: ""
+        username: '',
+        password: ''
       }
     };
   },
@@ -39,15 +40,15 @@ export default {
     async login() {
       try {
         await authService.login(this.credentials);
-        this.$router.push("home");
+        this.$router.push('home');
       } catch (err) {
-        console.log("ERROR:", err);
+        console.log('ERROR:', err);
       }
     }
   }
 };
 </script>
 
-<style lang="scss">
-@import url("Login.scss");
+<style lang="scss" scoped>
+@import url('Signin.scss');
 </style>
