@@ -55,7 +55,7 @@
     <footer>
       <span>Already have an account?</span>
       &nbsp;&nbsp;&nbsp;
-      <router-link to="/login">Login</router-link>
+      <router-link to="/login">Sign in</router-link>
     </footer>
   </div>
 </template>
@@ -88,6 +88,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import url('Signup.scss');
 </style>
