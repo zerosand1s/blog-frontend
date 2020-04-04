@@ -13,20 +13,20 @@
   box-shadow: 2px 2px 8px 5px #ebebff;
 }
 
-.child-container {
+.input-group {
   width: inherit;
   display: flex;
   flex-direction: row;
 }
 
-.child-container-left {
+.input-group-left {
   width: 50%;
   display: flex;
   margin-right: 10px;
   flex-direction: column;
 }
 
-.child-container-right {
+.input-group-right {
   width: 50%;
   display: flex;
   margin-left: 10px;
@@ -77,4 +77,40 @@ input:focus {
 
 .input button:hover {
   cursor: pointer;
+}
+
+@media (max-width: 375px) {
+  .container {
+    width: 80%;
+    padding: 15px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 5%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  .input-group-left {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+  .input-group-right {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .input button {
+    width: 45%;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+  }
 }

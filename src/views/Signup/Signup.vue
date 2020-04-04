@@ -5,42 +5,42 @@
       <h3>Sign up now to expore blogs</h3>
     </header>
     <form @submit.prevent="register">
-      <div class="child-container">
-        <div class="child-container-left">
+      <div class="input-group">
+        <div class="input-group-left">
           <div class="input">
             <label for="firstName">First name</label>
             <input type="text" name="firstName" v-model="user.firstName" />
           </div>
         </div>
-        <div class="child-container-right">
+        <div class="input-group-right">
           <div class="input">
             <label for="lastName">Last name</label>
             <input type="text" name="lastName" v-model="user.lastName" />
           </div>
         </div>
       </div>
-      <div class="child-container">
-        <div class="child-container-left">
+      <div class="input-group">
+        <div class="input-group-left">
           <div class="input">
             <label for="email">Email</label>
             <input type="text" name="email" v-model="user.email" />
           </div>
         </div>
-        <div class="child-container-right">
+        <div class="input-group-right">
           <div class="input">
             <label for="username">Username</label>
             <input type="text" name="username" v-model="user.username" />
           </div>
         </div>
       </div>
-      <div class="child-container">
-        <div class="child-container-left">
+      <div class="input-group">
+        <div class="input-group-left">
           <div class="input">
             <label for="password">Password</label>
             <input type="password" name="password" v-model="user.password" />
           </div>
         </div>
-        <div class="child-container-right">
+        <div class="input-group-right">
           <div class="input">
             <label for="confirmPassword">Confirm password</label>
             <!-- eslint-disable-next-line prettier/prettier -->
@@ -61,17 +61,17 @@
 </template>
 
 <script>
-const userService = require("../../services/user.service");
+const userService = require('../../services/user.service');
 export default {
   data() {
     return {
       user: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        username: "",
-        password: "",
-        confirmPassword: ""
+        firstName: '',
+        lastName: '',
+        email: '',
+        username: '',
+        password: '',
+        confirmPassword: ''
       }
     };
   },
@@ -79,9 +79,9 @@ export default {
     async register() {
       try {
         await userService.register(this.user);
-        this.$router.push("login");
+        this.$router.push('login');
       } catch (err) {
-        console.log("ERROR:", err);
+        console.log('ERROR:', err);
       }
     }
   }
@@ -89,5 +89,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("Signup.scss");
+@import url('Signup.scss');
 </style>
