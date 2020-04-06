@@ -1,15 +1,22 @@
 <template>
   <div class="navbar-container">
     <div class="navbar">
-      <ul class="nav-list">
-        <li :class="[currentPath.includes('home') ? activeClass : '', 'nav-item']">
+      <ul class="nav-list-left">
+        <li :class="[currentPath.includes('home') ? activeClass : '', 'nav-item-left']">
           <router-link to="/home">Home</router-link>
         </li>
-        <li :class="[currentPath.includes('profile') ? activeClass : '', 'nav-item']">
+        <li :class="[currentPath.includes('profile') ? activeClass : '', 'nav-item-left']">
           <router-link to="/profile">Profile</router-link>
         </li>
-        <li :class="[currentPath.includes('signout') ? activeClass : '', 'nav-item']">
+        <li :class="[currentPath.includes('signout') ? activeClass : '', 'nav-item-left']">
           <router-link to="/signout">Signout</router-link>
+        </li>
+      </ul>
+      <ul class="nav-list-right">
+        <li class="nav-item-right">
+          <router-link to="/new-blog">
+            <button class="btn-write-a-blog">Write a blog</button>
+          </router-link>
         </li>
       </ul>
     </div>
