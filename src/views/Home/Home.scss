@@ -1,0 +1,42 @@
+.home-container {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.child-container {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+}
+
+.col-left {
+  width: 70%;
+  display: flex;
+  padding: 18px;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.col-right {
+  width: 30%;
+  display: flex;
+  padding: 18px;
+  flex-direction: column;
+}
+
+.col-right button {
+  width: 50%;
+  height: 45px;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 8px;
+  color: #000000;
+  background-color: #ffa41b;
+}
+
+.col-right button:hover {
+  cursor: pointer;
+}

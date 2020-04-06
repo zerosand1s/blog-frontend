@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="navbar-container">
     <div class="navbar">
       <ul class="nav-list">
         <li :class="[currentPath.includes('home') ? activeClass : '', 'nav-item']">

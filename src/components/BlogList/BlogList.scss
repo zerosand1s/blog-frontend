@@ -1,0 +1,10 @@
+.blog-list-container {
+  width: 100%;
+  display: flex;
+}
+
+.blog-list {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+}
