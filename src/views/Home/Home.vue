@@ -1,7 +1,7 @@
 <template>
   <div class="home-container">
     <Navbar></Navbar>
-    <div class="child-container">
+    <div class="child-container" v-if="tags.length">
       <div class="col-left">
         <BlogList v-bind:blogs="blogs"></BlogList>
       </div>
@@ -16,6 +16,12 @@
           >#{{ tag }}</div>
         </div>
       </div>
+    </div>
+    <div class="empty" v-if="!tags.length">
+      <h3>
+        Looks like it's all empty here.
+        Please follow things that you are interested in.
+      </h3>
     </div>
   </div>
 </template>
