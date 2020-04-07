@@ -39,7 +39,8 @@ export default {
   methods: {
     async login() {
       try {
-        await authService.login(this.credentials);
+        const res = await authService.login(this.credentials);
+        localStorage.setItem('token', res.data.data.token);
         this.$router.push('home');
       } catch (err) {
         console.log('ERROR:', err);
