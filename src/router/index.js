@@ -3,6 +3,15 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
+const isUserAuthenticated = (to, from, next) => {
+  const token = localStorage.getItem('token');
+  if (token && token.trim().length) {
+    next();
+  } else {
+    next('/signin');
+  }
+};
+
 const routes = [
   {
     path: '/',
@@ -24,12 +33,14 @@ const routes = [
   {
     path: '/home',
     name: 'home',
-    component: () => import('../views/Home/Home.vue')
+    component: () => import('../views/Home/Home.vue'),
+    beforeEnter: isUserAuthenticated
   },
   {
     path: '/new-blog',
     name: 'new-blog',
-    component: () => import('../views/CreateNewBlog/CreateNewBlog')
+    component: () => import('../views/CreateNewBlog/CreateNewBlog'),
+    beforeEnter: isUserAuthenticated
   }
 ];
 
