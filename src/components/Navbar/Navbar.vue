@@ -8,8 +8,8 @@
         <li :class="[currentPath.includes('profile') ? activeClass : '', 'nav-item-left']">
           <router-link to="/profile">Profile</router-link>
         </li>
-        <li :class="[currentPath.includes('signout') ? activeClass : '', 'nav-item-left']">
-          <router-link to="/signout">Signout</router-link>
+        <li class="nav-item-left">
+          <router-link to v-on:click.native="signout">Signout</router-link>
         </li>
       </ul>
       <ul class="nav-list-right">
@@ -34,6 +34,12 @@ export default {
   computed: {
     currentPath() {
       return this.$route.path;
+    }
+  },
+  methods: {
+    signout() {
+      localStorage.removeItem('token');
+      this.$router.push('signin');
     }
   }
 };
