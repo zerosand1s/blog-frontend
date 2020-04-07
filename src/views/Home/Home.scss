@@ -20,23 +20,26 @@
 }
 
 .col-right {
-  width: 30%;
+  width: 20%;
   display: flex;
   padding: 18px;
   flex-direction: column;
 }
 
-.col-right button {
-  width: 50%;
-  height: 45px;
-  color: #ffffff;
-  text-align: center;
-  text-transform: uppercase;
-  border-radius: 8px;
-  color: #000000;
-  background-color: #ffa41b;
+.all-tags {
+  width: 100%;
+  padding-left: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 3px #d3d3d3;
 }
 
-.col-right button:hover {
+.tag {
+  width: fit-content;
+  padding: 3px;
+  margin: 8px 5px;
+  border-radius: 5px;
+}
+
+.tag:hover {
   cursor: pointer;
 }

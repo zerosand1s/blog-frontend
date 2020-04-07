@@ -5,7 +5,17 @@
       <div class="col-left">
         <BlogList v-bind:blogs="blogs"></BlogList>
       </div>
-      <div class="col-right"></div>
+      <div class="col-right">
+        <div class="all-tags">
+          <h3>Things you are interested in</h3>
+          <div
+            class="tag"
+            v-for="tag in tags"
+            v-bind:key="tags.indexOf(tag)"
+            v-bind:tag="tag"
+          >#{{ tag }}</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
