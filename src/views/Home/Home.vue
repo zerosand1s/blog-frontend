@@ -13,6 +13,7 @@
 <script>
 import Navbar from '../../components/Navbar/Navbar';
 import BlogList from '../../components/BlogList/BlogList';
+const userService = require('../../services/user.service');
 
 export default {
   name: 'Home',
@@ -41,12 +42,18 @@ export default {
           tags: ['coding', 'programming'],
           date: '10 Apr'
         }
-      ]
+      ],
+      tags: []
     };
   },
   components: {
     Navbar,
     BlogList
+  },
+  async created() {
+    const token = localStorage.getItem('token');
+    const tags = await userService.getUserTags(token);
+    this.tags = tags;
   }
 };
 </script>
