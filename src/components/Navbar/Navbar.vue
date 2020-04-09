@@ -6,7 +6,7 @@
           <router-link to="/home">Home</router-link>
         </li>
         <li :class="[currentPath.includes('profile') ? activeClass : '', 'nav-item-left']">
-          <router-link to="/profile">Profile</router-link>
+          <router-link :to="{ name: 'profile', params: { username: username } }">Profile</router-link>
         </li>
         <li class="nav-item-left">
           <router-link to v-on:click.native="signout">Signout</router-link>
@@ -25,9 +25,10 @@
 
 <script>
 export default {
-  name: 'Navbar',
+  name: 'navbar',
   data() {
     return {
+      username: localStorage.getItem('username') || 'invalid',
       activeClass: 'active'
     };
   },

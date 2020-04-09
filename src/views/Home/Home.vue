@@ -2,7 +2,7 @@
   <div class="body">
     <error-message v-if="showError" v-bind:message="errorMessage"></error-message>
     <div class="home-container">
-      <Navbar></Navbar>
+      <navbar></navbar>
       <div class="child-container" v-if="tags.length">
         <div class="col-left">
           <BlogList v-bind:blogs="blogs"></BlogList>
