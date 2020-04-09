@@ -6,7 +6,7 @@
           <h2>{{ blog.title }}</h2>
         </div>
         <div class="author">
-          <h5>@&nbsp;&nbsp;{{ blog.author }}</h5>
+          <h5>@&nbsp;&nbsp;{{ blog.author.username }}</h5>
         </div>
       </div>
       <div class="blog-list-item-bottom">
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'BlogListItem',
+  name: 'blog-list-item',
   props: ['blog']
 };
 </script> 

@@ -37,6 +37,12 @@ const routes = [
     beforeEnter: isUserAuthenticated
   },
   {
+    path: '/profile/:username',
+    name: 'profile',
+    component: () => import('../views/Profile/Profile.vue'),
+    beforeEnter: isUserAuthenticated
+  },
+  {
     path: '/new-blog',
     name: 'new-blog',
     component: () => import('../views/CreateNewBlog/CreateNewBlog'),

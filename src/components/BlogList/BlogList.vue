@@ -1,7 +1,7 @@
 <template>
   <div class="blog-list-container">
     <div class="blog-list">
-      <BlogListItem v-for="blog in blogs" v-bind:key="blogs.indexOf(blog)" v-bind:blog="blog"></BlogListItem>
+      <blog-list-item v-for="blog in blogs" v-bind:key="blogs.indexOf(blog)" v-bind:blog="blog"></blog-list-item>
     </div>
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 import BlogListItem from '../BlogListItem/BlogListItem';
 export default {
-  name: 'BlogList',
+  name: 'blog-list',
   components: {
     BlogListItem
   },

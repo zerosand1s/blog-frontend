@@ -5,7 +5,7 @@
       <navbar></navbar>
       <div class="child-container" v-if="tags.length">
         <div class="col-left">
-          <BlogList v-bind:blogs="blogs"></BlogList>
+          <blog-list v-bind:blogs="blogs"></blog-list>
         </div>
         <div class="col-right">
           <div class="all-tags">
@@ -43,21 +43,21 @@ export default {
         {
           title:
             "This is my first blog and I'm writing about my experience as professional biker",
-          author: 'r.cali',
+          author: { username: 'r.cali' },
           likes: 10,
           tags: ['first'],
           date: '2 Apr'
         },
         {
           title: 'I travelled in India this winter',
-          author: 'r.cali',
+          author: { username: 'r.cali' },
           likes: 26,
           tags: ['travel'],
           date: '8 Apr'
         },
         {
           title: 'How to work with Vue.js components',
-          author: 'r.cali',
+          author: { username: 'r.cali' },
           likes: 55,
           tags: ['coding', 'programming'],
           date: '10 Apr'
