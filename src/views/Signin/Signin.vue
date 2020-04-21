@@ -1,19 +1,21 @@
 <template>
-  <div class="base">
+  <div class="container">
     <error-message v-if="showError" v-bind:message="errorMessage"></error-message>
-    <div class="container">
+    <div class="signin-form">
       <header>
-        <h1>Sign In</h1>
         <h3>Sign in to explore blogs</h3>
       </header>
-      <form @submit.prevent="login">
+      <form @submit.prevent="signin">
         <div class="input">
-          <label for="username">Username</label>
-          <input type="text" name="username" v-model="credentials.username" />
+          <input type="text" name="username" placeholder="Username" v-model="credentials.username" />
         </div>
         <div class="input">
-          <label for="password">Password</label>
-          <input type="password" name="password" v-model="credentials.password" />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            v-model="credentials.password"
+          />
         </div>
         <div class="input">
           <button type="submit">Sign in</button>
@@ -46,7 +48,7 @@ export default {
     };
   },
   methods: {
-    async login() {
+    async signin() {
       try {
         const res = await authService.login(this.credentials);
         localStorage.setItem('token', res.data.data.token);
@@ -58,7 +60,6 @@ export default {
         setTimeout(() => {
           this.showError = false;
         }, 3000);
-        this.$router.push('signin');
       }
     }
   }
@@ -66,5 +67,73 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url('Signin.scss');
+.signin-form {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 8px 5px #ebebff;
+
+  header {
+    margin-bottom: 1rem;
+  }
+}
+
+.input {
+  margin-bottom: 25px;
+
+  label {
+    margin-bottom: 50px;
+  }
+
+  input {
+    width: 100%;
+    height: 50px;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding-left: 10px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
+    border: solid 2px lightgray;
+  }
+
+  input:focus {
+    outline: none;
+    box-shadow: 2px 2px 8px 5px #ebebff;
+  }
+
+  button {
+    width: 25%;
+    height: 45px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #000000;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 375px) {
+  .signin-form {
+    width: 80%;
+    padding: 1rem;
+
+    .input button {
+      width: 45%;
+    }
+  }
+}
 </style>
