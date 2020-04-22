@@ -99,12 +99,12 @@ export default {
 
 @media (max-width: 375px) {
   .signin-form {
-    width: 80%;
+    width: 90%;
     padding: 1rem;
+  }
 
-    .input button {
-      width: 45%;
-    }
+  .btn {
+    width: 45%;
   }
 }
 </style>
