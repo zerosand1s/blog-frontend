@@ -3,7 +3,7 @@
     <error-message v-if="showError" v-bind:message="errorMessage"></error-message>
     <div class="signup-form">
       <header>
-        <h3>Sign up now to expore blogs</h3>
+        <h3>Sign up now to explore blogs</h3>
       </header>
       <form @submit.prevent="register">
         <div class="input">

@@ -1,22 +1,18 @@
 <template>
-  <div class="navbar-container">
+  <div class="container">
+    <div class="logo">
+      <router-link to="/home">Blogs</router-link>
+    </div>
     <div class="navbar">
-      <ul class="nav-list-left">
-        <li :class="[currentPath.includes('home') ? activeClass : '', 'nav-item-left']">
+      <ul class="nav-list">
+        <li :class="[currentPath.includes('home') ? activeClass : '', 'nav-item']">
           <router-link to="/home">Home</router-link>
         </li>
-        <li :class="[currentPath.includes('profile') ? activeClass : '', 'nav-item-left']">
+        <li :class="[currentPath.includes('profile') ? activeClass : '', 'nav-item']">
           <router-link :to="{ name: 'profile', params: { username: username } }">Profile</router-link>
         </li>
-        <li class="nav-item-left">
+        <li class="nav-item">
           <router-link to v-on:click.native="signout">Signout</router-link>
-        </li>
-      </ul>
-      <ul class="nav-list-right">
-        <li class="nav-item-right">
-          <router-link to="/new-blog">
-            <button class="btn-write-a-blog">Write a blog</button>
-          </router-link>
         </li>
       </ul>
     </div>
@@ -47,5 +43,62 @@ export default {
 </script> 
 
 <style lang="scss" scoped>
-@import url('Navbar.scss');
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30% auto;
+  grid-template-rows: auto;
+  grid-template-areas: 'logo links';
+  background-color: $secondary;
+  border-bottom: 0.1px solid $gray;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  grid-area: logo;
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    color: $dark;
+    text-decoration: none;
+  }
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  grid-area: links;
+  justify-content: flex-end;
+  align-items: center;
+
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    margin-right: 5rem;
+    list-style-type: none;
+  }
+
+  .nav-item {
+    width: 5rem;
+    padding: 0.5rem;
+    margin: 0 1rem;
+    text-align: center;
+
+    a {
+      color: $dark;
+      text-decoration: none;
+    }
+  }
+
+  .nav-item:hover {
+    border-bottom: solid 2px $primary;
+  }
+
+  .active {
+    border-bottom: solid 2px $primary;
+  }
+}
 </style>
