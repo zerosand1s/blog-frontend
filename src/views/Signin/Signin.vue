@@ -7,10 +7,17 @@
       </header>
       <form @submit.prevent="signin">
         <div class="input">
-          <input type="text" name="username" placeholder="Username" v-model="credentials.username" />
+          <input
+            class="input-field"
+            type="text"
+            name="username"
+            placeholder="Username"
+            v-model="credentials.username"
+          />
         </div>
         <div class="input">
           <input
+            class="input-field"
             type="password"
             name="password"
             placeholder="Password"
@@ -18,7 +25,7 @@
           />
         </div>
         <div class="input">
-          <button type="submit">Sign in</button>
+          <button class="btn btn--dark" type="submit">Sign in</button>
         </div>
       </form>
       <footer>
@@ -78,51 +85,15 @@ export default {
   top: 50%;
   transform: translateY(-50%);
   margin: 0 auto;
-  border-radius: 0.5rem;
+  border-radius: $default-border-radius;
   box-shadow: 2px 2px 8px 5px #ebebff;
 
   header {
     margin-bottom: 1rem;
   }
-}
 
-.input {
-  margin-bottom: 25px;
-
-  label {
-    margin-bottom: 50px;
-  }
-
-  input {
-    width: 100%;
-    height: 50px;
-    font-size: 1rem;
-    border-radius: 8px;
-    padding-left: 10px;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box; /* Firefox, other Gecko */
-    box-sizing: border-box;
-    border: solid 2px lightgray;
-  }
-
-  input:focus {
-    outline: none;
-    box-shadow: 2px 2px 8px 5px #ebebff;
-  }
-
-  button {
-    width: 25%;
-    height: 45px;
-    color: #ffffff;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 8px;
-    background-color: #000000;
-  }
-
-  button:hover {
-    cursor: pointer;
+  .input {
+    margin-bottom: 25px;
   }
 }
 
