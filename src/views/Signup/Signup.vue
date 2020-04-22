@@ -6,77 +6,59 @@
         <h3>Sign up now to expore blogs</h3>
       </header>
       <form @submit.prevent="register">
-        <div class="input-group">
-          <div class="input-group-left">
-            <div class="input">
-              <input
-                class="input-field"
-                type="text"
-                name="firstName"
-                v-model="user.firstName"
-                placeholder="First name"
-              />
-            </div>
-          </div>
-          <div class="input-group-right">
-            <div class="input">
-              <input
-                class="input-field"
-                type="text"
-                name="lastName"
-                v-model="user.lastName"
-                placeholder="Last name"
-              />
-            </div>
-          </div>
+        <div class="input">
+          <input
+            class="input-field"
+            type="text"
+            name="firstName"
+            v-model="user.firstName"
+            placeholder="First name"
+          />
         </div>
-        <div class="input-group">
-          <div class="input-group-left">
-            <div class="input">
-              <input
-                class="input-field"
-                type="text"
-                name="email"
-                v-model="user.email"
-                placeholder="Email"
-              />
-            </div>
-          </div>
-          <div class="input-group-right">
-            <div class="input">
-              <input
-                class="input-field"
-                type="text"
-                name="username"
-                v-model="user.username"
-                placeholder="Username"
-              />
-            </div>
-          </div>
+        <div class="input">
+          <input
+            class="input-field"
+            type="text"
+            name="lastName"
+            v-model="user.lastName"
+            placeholder="Last name"
+          />
         </div>
-        <div class="input-group">
-          <div class="input-group-left">
-            <div class="input">
-              <input
-                class="input-field"
-                type="password"
-                name="password"
-                v-model="user.password"
-                placeholder="Password"
-              />
-            </div>
-          </div>
-          <div class="input-group-right">
-            <div class="input">
-              <input
-                class="input-field"
-                type="password"
-                name="confirmPassword"
-                v-model="user.confirmPassword"
-                placeholder="Confirm password"
-              />
-            </div>
-          </div>
+        <div class="input">
+          <input
+            class="input-field"
+            type="text"
+            name="email"
+            v-model="user.email"
+            placeholder="Email"
+          />
+        </div>
+        <div class="input">
+          <input
+            class="input-field"
+            type="text"
+            name="username"
+            v-model="user.username"
+            placeholder="Username"
+          />
+        </div>
+        <div class="input">
+          <input
+            class="input-field"
+            type="password"
+            name="password"
+            v-model="user.password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="input">
+          <input
+            class="input-field"
+            type="password"
+            name="confirmPassword"
+            v-model="user.confirmPassword"
+            placeholder="Confirm password"
+          />
         </div>
         <div class="input">
           <button class="btn btn--dark" type="submit">Sign Up</button>
@@ -132,9 +114,9 @@ export default {
 
 <style lang="scss" scoped>
 .signup-form {
-  width: 60%;
+  width: 30%;
   display: flex;
-  padding: 2rem;
+  padding: 1rem;
   position: absolute;
   left: 0;
   right: 0;
@@ -146,29 +128,33 @@ export default {
   box-shadow: 2px 2px 8px 5px #ebebff;
 }
 
-.input-group {
-  width: inherit;
-  display: flex;
-  flex-direction: row;
-}
-
-.input-group-left {
-  width: 50%;
-  display: flex;
-  margin-right: 10px;
-  flex-direction: column;
-}
-
-.input-group-right {
-  width: 50%;
-  display: flex;
-  margin-left: 10px;
-  flex-direction: column;
+header {
+  margin-bottom: 1rem;
 }
 
 .input {
   margin-bottom: 25px;
 }
+
+// .input-group {
+//   width: inherit;
+//   display: flex;
+//   flex-direction: row;
+// }
+
+// .input-group-left {
+//   width: 50%;
+//   display: flex;
+//   margin-right: 10px;
+//   flex-direction: column;
+// }
+
+// .input-group-right {
+//   width: 50%;
+//   display: flex;
+//   margin-left: 10px;
+//   flex-direction: column;
+// }
 
 @media (max-width: 375px) {
   .signup-form {
@@ -176,19 +162,19 @@ export default {
     padding: 1rem;
   }
 
-  .input-group {
-    flex-direction: column;
-  }
+  // .input-group {
+  //   flex-direction: column;
+  // }
 
-  .input-group-left {
-    width: 100%;
-    margin-right: 0;
-  }
+  // .input-group-left {
+  //   width: 100%;
+  //   margin-right: 0;
+  // }
 
-  .input-group-right {
-    width: 100%;
-    margin-left: 0;
-  }
+  // .input-group-right {
+  //   width: 100%;
+  //   margin-left: 0;
+  // }
 
   .btn {
     width: 45%;

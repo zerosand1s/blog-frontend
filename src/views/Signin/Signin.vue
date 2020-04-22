@@ -78,7 +78,7 @@ export default {
   width: 30%;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1rem;
   position: absolute;
   left: 0;
   right: 0;
