@@ -58,7 +58,8 @@ export default {
   flex-direction: row;
   grid-area: logo;
   font-size: 1.5rem;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 5rem;
   align-items: center;
 
   a {

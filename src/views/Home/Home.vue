@@ -1,30 +1,17 @@
 <template>
-  <div class="body">
+  <div class="container">
     <error-message v-if="showError" v-bind:message="errorMessage"></error-message>
-    <div class="home-container">
-      <navbar></navbar>
-      <div class="child-container" v-if="tags.length">
-        <div class="col-left">
-          <blog-list v-bind:blogs="blogs"></blog-list>
+    <navbar></navbar>
+    <div class="home">
+      <aside class="sidebar">
+        <div class="tags">
+          <h3>Things you are interested in</h3>
+          <div class="tag" v-for="tag in tags" v-bind:key="tags.indexOf(tag)">#{{ tag }}</div>
         </div>
-        <div class="col-right">
-          <div class="all-tags">
-            <h3>Things you are interested in</h3>
-            <div
-              class="tag"
-              v-for="tag in tags"
-              v-bind:key="tags.indexOf(tag)"
-              v-bind:tag="tag"
-            >#{{ tag }}</div>
-          </div>
-        </div>
-      </div>
-      <div class="empty" v-if="!tags.length">
-        <h3>
-          Looks like it's all empty here.
-          Please follow things that you are interested in.
-        </h3>
-      </div>
+      </aside>
+      <main class="blog-list">
+        <blog-list v-bind:blogs="blogs"></blog-list>
+      </main>
     </div>
   </div>
 </template>
@@ -91,5 +78,38 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url('Home.scss');
+.home {
+  width: 100%;
+  display: grid;
+  padding-top: 1rem;
+  grid-template-columns: 25% auto;
+  grid-template-rows: auto;
+  grid-template-areas: 'sidebar blog-list';
+  grid-gap: 0 1.3rem;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  margin-left: 5rem;
+}
+
+.blog-list {
+  grid-area: blog-list;
+  margin-right: 5rem;
+}
+
+.tags {
+  width: 100%;
+
+  .tag {
+    width: fit-content;
+    padding: 3px;
+    margin: 8px 5px;
+    border-radius: 5px;
+  }
+
+  .tag:hover {
+    cursor: pointer;
+  }
+}
 </style>

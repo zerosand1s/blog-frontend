@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-list-item-container">
+  <div class="container">
     <div class="blog-list-item">
       <div class="blog-list-item-top">
         <div class="title">
@@ -28,5 +28,51 @@ export default {
 </script> 
 
 <style lang="scss" scoped>
-@import url('BlogListItem.scss');
+.container {
+  display: flex;
+  flex-direction: column;
+  // padding: 10px;
+  cursor: pointer;
+}
+
+.container + .container {
+  margin: 1.2rem 0;
+}
+
+.blog-list-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .blog-list-item-top {
+    margin-bottom: 1rem;
+
+    .title h2 {
+      margin: 0 0 1px 0;
+    }
+
+    .author h5 {
+      margin: -1px 0 0 0;
+      font-style: italic;
+    }
+  }
+
+  .blog-list-item-bottom {
+    margin-top: 1rem;
+
+    .day {
+      margin-bottom: 5px;
+    }
+
+    .tags {
+      background-color: yellow;
+    }
+
+    .likes .fas {
+      color: #ff0000;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+    }
+  }
+}
 </style>
