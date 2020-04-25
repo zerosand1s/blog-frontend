@@ -23,29 +23,29 @@ const routes = [
   {
     path: '/signin',
     name: 'signin',
-    component: () => import('../views/Signin/Signin.vue')
+    component: () => import('../views/Signin.vue')
   },
   {
     path: '/signup',
     name: 'signup',
-    component: () => import('../views/Signup/Signup.vue')
+    component: () => import('../views/Signup.vue')
   },
   {
     path: '/home',
     name: 'home',
-    component: () => import('../views/Home/Home.vue'),
+    component: () => import('../views/Home.vue'),
     beforeEnter: isUserAuthenticated
   },
   {
     path: '/profile/:username',
     name: 'profile',
-    component: () => import('../views/Profile/Profile.vue'),
+    component: () => import('../views/Profile.vue'),
     beforeEnter: isUserAuthenticated
   },
   {
     path: '/new-blog',
     name: 'new-blog',
-    component: () => import('../views/CreateNewBlog/CreateNewBlog'),
+    component: () => import('../views/CreateNewBlog.vue'),
     beforeEnter: isUserAuthenticated
   }
 ];

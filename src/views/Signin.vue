@@ -38,8 +38,8 @@
 </template>
 
 <script>
-const authService = require('../../services/auth.service');
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+const authService = require('../services/auth.service');
+import ErrorMessage from '../components/ErrorMessage';
 export default {
   components: {
     ErrorMessage

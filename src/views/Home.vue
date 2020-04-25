@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import Navbar from '../../components/Navbar/Navbar';
-import BlogList from '../../components/BlogList/BlogList';
-import Topics from '../../components/Topics';
-// const userService = require('../../services/user.service');
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import Navbar from '../components/Navbar';
+import BlogList from '../components/BlogList';
+import Topics from '../components/Topics';
+// const userService = require('../services/user.service');
+import ErrorMessage from '../components/ErrorMessage';
 
 export default {
   name: 'Home',

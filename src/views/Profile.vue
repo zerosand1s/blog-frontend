@@ -21,11 +21,11 @@
 </template>
 
 <script>
-const userService = require('../../services/user.service');
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import Navbar from '../../components/Navbar/Navbar';
-import Topics from '../../components/Topics';
-import BlogList from '../../components/BlogList/BlogList';
+const userService = require('../services/user.service');
+import ErrorMessage from '../components/ErrorMessage';
+import Navbar from '../components/Navbar';
+import Topics from '../components/Topics';
+import BlogList from '../components/BlogList';
 export default {
   components: {
     Navbar,

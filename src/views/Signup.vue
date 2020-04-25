@@ -74,8 +74,8 @@
 </template>
 
 <script>
-const userService = require('../../services/user.service');
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+const userService = require('../services/user.service');
+import ErrorMessage from '../components/ErrorMessage';
 export default {
   components: {
     ErrorMessage
