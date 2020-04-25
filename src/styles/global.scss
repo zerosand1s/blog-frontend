@@ -48,10 +48,18 @@ p {
   cursor: pointer;
 }
 
+.btn--primary {
+  background-color: $primary;
+}
+
 .btn--dark {
   background-color: $dark;
 }
 
 .btn--green {
   background-color: $green;
+}
+
+.btn--gray {
+  background-color: $gray;
 }
