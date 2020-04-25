@@ -1,13 +1,10 @@
 <template>
   <div class="container">
-    <error-message v-if="showError" v-bind:message="errorMessage"></error-message>
     <navbar></navbar>
     <div class="home">
+      <error-message v-if="showError" v-bind:message="errorMessage"></error-message>
       <aside class="sidebar">
-        <div class="tags">
-          <h3>Things you are interested in</h3>
-          <div class="tag" v-for="tag in tags" v-bind:key="tags.indexOf(tag)">#{{ tag }}</div>
-        </div>
+        <topics v-bind:tags="tags"></topics>
       </aside>
       <main class="blog-list">
         <blog-list v-bind:blogs="blogs"></blog-list>
@@ -19,7 +16,8 @@
 <script>
 import Navbar from '../../components/Navbar/Navbar';
 import BlogList from '../../components/BlogList/BlogList';
-const userService = require('../../services/user.service');
+import Topics from '../../components/Topics';
+// const userService = require('../../services/user.service');
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
 export default {
@@ -58,12 +56,14 @@ export default {
   components: {
     Navbar,
     BlogList,
+    Topics,
     ErrorMessage
   },
   async created() {
     try {
-      const token = localStorage.getItem('token');
-      const tags = await userService.getUserTags(token);
+      // const token = localStorage.getItem('token');
+      // const tags = await userService.getUserTags(token);
+      const tags = ['travel', 'sports', 'coding'];
       this.tags = tags;
     } catch (err) {
       this.errorMessage = err.response.data.message;
@@ -79,37 +79,20 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  width: 100%;
+  width: auto;
   display: grid;
-  padding-top: 1rem;
+  margin: 1rem 5rem;
   grid-template-columns: 25% auto;
   grid-template-rows: auto;
   grid-template-areas: 'sidebar blog-list';
-  grid-gap: 0 1.3rem;
+  grid-gap: 0 1rem;
 }
 
 .sidebar {
   grid-area: sidebar;
-  margin-left: 5rem;
 }
 
 .blog-list {
   grid-area: blog-list;
-  margin-right: 5rem;
-}
-
-.tags {
-  width: 100%;
-
-  .tag {
-    width: fit-content;
-    padding: 3px;
-    margin: 8px 5px;
-    border-radius: 5px;
-  }
-
-  .tag:hover {
-    cursor: pointer;
-  }
 }
 </style>

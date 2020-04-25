@@ -31,7 +31,7 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  // padding: 10px;
+  padding: 0.5rem;
   cursor: pointer;
 }
 
