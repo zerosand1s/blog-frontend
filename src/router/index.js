@@ -47,6 +47,12 @@ const routes = [
     name: 'new-blog',
     component: () => import('../views/CreateNewBlog.vue'),
     beforeEnter: isUserAuthenticated
+  },
+  {
+    path: '/blog/:title',
+    name: 'blog-details',
+    component: () => import('../views/BlogDetails.vue'),
+    beforeEnter: isUserAuthenticated
   }
 ];
 

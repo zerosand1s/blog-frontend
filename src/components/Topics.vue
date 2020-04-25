@@ -22,21 +22,26 @@ export default {
 .container {
   width: 100%;
   padding: 0.5rem;
-  border: 0.5px solid $primary;
+  border: 0.5px solid $gray;
   border-radius: $default-border-radius;
 }
 
 .tags {
+  h3 {
+    margin: 0.5rem;
+  }
+
   .tag {
     padding: 0.5rem;
-    margin: 0.5rem 0;
+    margin: 0.3rem 0;
   }
 
   .tag:hover {
     font-weight: bold;
     color: $secondary;
     cursor: pointer;
-    background-color: yellowgreen;
+    background-color: $gray;
+    border-radius: $default-border-radius;
   }
 }
 </style>
