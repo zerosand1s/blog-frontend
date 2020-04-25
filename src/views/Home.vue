@@ -4,6 +4,9 @@
     <div class="home">
       <error-message v-if="showError" v-bind:message="errorMessage"></error-message>
       <aside class="sidebar">
+        <router-link to="/new-blog">
+          <button class="btn btn--green btn--create--blog">Write a blog</button>
+        </router-link>
         <topics v-bind:tags="tags"></topics>
       </aside>
       <main class="blog-list">
@@ -39,6 +42,34 @@ export default {
           likes: 26,
           tags: ['travel'],
           date: '8 Apr'
+        },
+        {
+          title: 'How to work with Vue.js components',
+          author: { username: 'r.cali' },
+          likes: 55,
+          tags: ['coding', 'programming'],
+          date: '10 Apr'
+        },
+        {
+          title: 'How to work with Vue.js components',
+          author: { username: 'r.cali' },
+          likes: 55,
+          tags: ['coding', 'programming'],
+          date: '10 Apr'
+        },
+        {
+          title: 'How to work with Vue.js components',
+          author: { username: 'r.cali' },
+          likes: 55,
+          tags: ['coding', 'programming'],
+          date: '10 Apr'
+        },
+        {
+          title: 'How to work with Vue.js components',
+          author: { username: 'r.cali' },
+          likes: 55,
+          tags: ['coding', 'programming'],
+          date: '10 Apr'
         },
         {
           title: 'How to work with Vue.js components',
@@ -90,6 +121,11 @@ export default {
 
 .sidebar {
   grid-area: sidebar;
+
+  .btn--create--blog {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .blog-list {
