@@ -59,7 +59,7 @@ export default {
       try {
         const res = await authService.login(this.credentials);
         localStorage.setItem('token', res.data.data.token);
-        localStorage.setItem('username', res.data.data.username);
+        this.$store.dispatch('setUser', res.data.data.user);        
         this.$router.push('home');
       } catch (err) {
         this.errorMessage = err.response.data.message;

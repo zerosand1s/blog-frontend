@@ -9,7 +9,7 @@
           <router-link to="/home">Home</router-link>
         </li>
         <li :class="[currentPath.includes('profile') ? activeClass : '', 'nav-item']">
-          <router-link :to="{ name: 'profile', params: { username: username } }">Profile</router-link>
+          <router-link :to="{ name: 'profile', params: { username: user.username } }">Profile</router-link>
         </li>
         <li class="nav-item">
           <router-link to v-on:click.native="signout">Signout</router-link>
@@ -20,15 +20,18 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   name: 'navbar',
   data() {
-    return {
-      username: localStorage.getItem('username') || 'invalid',
+    return {      
       activeClass: 'active'
     };
   },
   computed: {
+    ...mapGetters({
+      user: 'getUser',
+    }),
     currentPath() {
       return this.$route.path;
     }
@@ -36,7 +39,7 @@ export default {
   methods: {
     signout() {
       localStorage.removeItem('token');
-      this.$router.push('signin');
+      this.$router.push('/signin');
     }
   }
 };

@@ -34,18 +34,30 @@ p {
   box-shadow: 2px 2px 8px 5px #ebebff;
 }
 
-.btn {
-  width: 25%;
+.btn {  
   height: 45px;
   color: #ffffff;
   text-align: center;
   font-size: 1rem;
   font-weight: bold;
   border-radius: $default-border-radius;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-.btn:hover {
-  cursor: pointer;
+.btn--small {  
+  height: 25px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.6rem;
+  font-weight: bold;
+  border-radius: $default-border-radius;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .btn--primary {

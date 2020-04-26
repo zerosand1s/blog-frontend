@@ -7,7 +7,8 @@
         <router-link to="/new-blog">
           <button class="btn btn--green btn--create--blog">Write a blog</button>
         </router-link>
-        <topics v-bind:tags="tags"></topics>
+        <topics v-bind:showTagsFollowing="true"></topics>
+        <topics v-bind:showTagsFollowing="false"></topics>
       </aside>
       <main class="blog-list">
         <blog-list v-bind:blogs="blogs"></blog-list>
@@ -17,69 +18,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import Navbar from '../components/Navbar';
 import BlogList from '../components/BlogList';
 import Topics from '../components/Topics';
-// const userService = require('../services/user.service');
 import ErrorMessage from '../components/ErrorMessage';
 
 export default {
   name: 'Home',
   data() {
-    return {
-      blogs: [
-        {
-          title:
-            "This is my first blog and I'm writing about my experience as professional biker",
-          author: { username: 'r.cali' },
-          likes: 10,
-          tags: ['first'],
-          date: '2 Apr'
-        },
-        {
-          title: 'I travelled in India this winter',
-          author: { username: 'r.cali' },
-          likes: 26,
-          tags: ['travel'],
-          date: '8 Apr'
-        },
-        {
-          title: 'How to work with Vue.js components',
-          author: { username: 'r.cali' },
-          likes: 55,
-          tags: ['coding', 'programming'],
-          date: '10 Apr'
-        },
-        {
-          title: 'How to work with Vue.js components',
-          author: { username: 'r.cali' },
-          likes: 55,
-          tags: ['coding', 'programming'],
-          date: '10 Apr'
-        },
-        {
-          title: 'How to work with Vue.js components',
-          author: { username: 'r.cali' },
-          likes: 55,
-          tags: ['coding', 'programming'],
-          date: '10 Apr'
-        },
-        {
-          title: 'How to work with Vue.js components',
-          author: { username: 'r.cali' },
-          likes: 55,
-          tags: ['coding', 'programming'],
-          date: '10 Apr'
-        },
-        {
-          title: 'How to work with Vue.js components',
-          author: { username: 'r.cali' },
-          likes: 55,
-          tags: ['coding', 'programming'],
-          date: '10 Apr'
-        }
-      ],
-      tags: [],
+    return {      
       showError: false,
       errorMessage: ''
     };
@@ -90,20 +38,14 @@ export default {
     Topics,
     ErrorMessage
   },
-  async created() {
-    try {
-      // const token = localStorage.getItem('token');
-      // const tags = await userService.getUserTags(token);
-      const tags = ['travel', 'sports', 'coding'];
-      this.tags = tags;
-    } catch (err) {
-      this.errorMessage = err.response.data.message;
-      this.showError = true;
-      setTimeout(() => {
-        this.showError = false;
-      }, 3000);
-      this.$router.push('signin');
-    }
+  created() {
+    this.$store.dispatch('setUserFollowingTags');
+    this.$store.dispatch('setSuggestedTags');
+  },
+  computed: {
+    ...mapGetters({
+      blogs: 'getBlogs'
+    })
   }
 };
 </script>

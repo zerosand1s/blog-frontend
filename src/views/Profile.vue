@@ -10,10 +10,10 @@
       </div>
       <div class="user-blogs">
         <aside class="sidebar">
-          <topics v-bind:tags="user.tags"></topics>
+          <topics v-bind:showTagsFollowing="true"></topics>
         </aside>
         <main class="blog-list">
-          <blog-list v-bind:blogs="user.blogs"></blog-list>
+          <blog-list v-bind:blogs="blogs"></blog-list>
         </main>
       </div>
     </div>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-const userService = require('../services/user.service');
+import { mapGetters } from 'vuex';
 import ErrorMessage from '../components/ErrorMessage';
 import Navbar from '../components/Navbar';
 import Topics from '../components/Topics';
@@ -35,34 +35,19 @@ export default {
   },
   data() {
     return {
-      loading: true,
-      user: {},
+      loading: true,      
       showError: false,
       errorMessage: ''
     };
   },
   created() {
-    this.getUserDetails();
+    this.$store.dispatch('setUserBlogs');    
   },
-  methods: {
-    async getUserDetails() {
-      try {
-        const token = localStorage.getItem('token');
-        const username = localStorage.getItem('username');
-        const tags = ['travel', 'sports', 'coding'];
-        const user = await userService.getUserDetails(token, username);
-        user.tags = tags;
-        this.user = user;
-        this.loading = false;
-      } catch (err) {
-        this.errorMessage = err.response.data.message;
-        this.showError = true;
-        setTimeout(() => {
-          this.showError = false;
-        }, 3000);
-        this.$router.push('signup');
-      }
-    }
+  computed: {
+    ...mapGetters({
+      user: 'getUser',
+      blogs: 'getUserBlogs'    
+    })
   }
 };
 </script>
